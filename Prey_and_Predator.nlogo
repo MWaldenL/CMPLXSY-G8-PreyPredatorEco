@@ -43,7 +43,7 @@ to setup-cats
 end
 
 to go
-  if ticks >= 500 [stop]
+  ifelse until-tick-500 [if ticks >= 500 [stop]] [if (count mice <= 0) or (count cats <= 0) or (count patches with [pcolor = yellow] <= 0)[stop]]
   move
   eat
   reproduce
@@ -267,7 +267,7 @@ num_cats
 num_cats
 0
 100
-50.0
+100.0
 1
 1
 NIL
@@ -302,6 +302,17 @@ start_food
 1
 percent
 HORIZONTAL
+
+SWITCH
+446
+134
+601
+167
+until-tick-500
+until-tick-500
+1
+1
+-1000
 
 @#$#@#$#@
 ## WHAT IS IT?
